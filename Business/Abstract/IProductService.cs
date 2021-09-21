@@ -11,11 +11,11 @@ namespace Business.Abstract
 {
     public interface IProductService
     {
-        List<Product> GetAll();
-        List<Product> GetAllByCategoryId(int id);
-        List<Product> GetByUnitPrice(decimal min, decimal max);
-        List<ProductDetailDto> GetProductDetails();
-        Product GetById(int productId);
+        IDataResult<List<Product>> GetAll();  //IDataResult<List<Product>> hem işlem sonucunu hem mesajı içeren hem döndüreceği tipi içeren(List<Product>) içerir. Öncesinde List<Product> diyerek sadece dönüş tipini belirtmiştik. Şimdiki yapı ise çok daha işlevsel olmuş oldu.
+        IDataResult<List<Product>> GetAllByCategoryId(int id);
+        IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max);
+        IDataResult<List<ProductDetailDto>> GetProductDetails();
+        IDataResult<Product> GetById(int productId);
         IResult Add(Product product); //void döndürmek yerine artık IResult diyoruz.
     }
 }
